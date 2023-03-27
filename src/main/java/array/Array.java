@@ -1,8 +1,8 @@
-package arrayTest;
+package array;
 
 import java.util.Scanner;
 
-public class ArrayTest {
+public class Array {
     public static void main(String[] args) {
     int[][] matrix = {
             {1,2,3,4},
