@@ -3,82 +3,84 @@ package java_methods;
 import java.util.Scanner;
 
 public class Methods {
-    public static void main(String[] args) {
+    public static void main(String[] args){
+        Methods m = new Methods();
+        Scanner sc = new Scanner(System.in);
 
-    Methods sc = new Methods();
-    Scanner os = new Scanner(System.in);
+        System.out.print("Enter two integers: ");
+        int x = sc.nextInt();
+        int z = sc.nextInt();
 
-    System.out.println("Inpute two integers");
-    int i = os.nextInt();
-    int j = os.nextInt();
-    System.out.println(sc.one(i,j));
+        System.out.println(m.first(x,z));
 
+        m.second();
 
-    sc.two();
+        System.out.print("Enter a boolean: ");
+        boolean b = sc.nextBoolean();
+        m.third(b);
 
-    System.out.println("Enter a boolean;");
-    boolean a = os.nextBoolean();
-    sc.aBoolean(a);
+        System.out.print("Enter a character: ");
+        char c = sc.next().charAt(0);
+        System.out.println(m.fourth(c));
 
+        System.out.print("Enter two floats: ");
+        float d = sc.nextFloat();
+        float e = sc.nextFloat();
+        System.out.println(m.fifth(d,e));
 
-    System.out.println(("Enter two floats;"));
-    float f = os.nextFloat();
-    float v = os.nextFloat();
-    System.out.println(sc.aFloat(f, v));
-
-    sc.itself();
-}
-
-    /**
-     * parm i;
-     * parm j;
-     */
-
-    int one(int i, int j){
-        return i;
+        m.sixth();
     }
 
     /**
-     * return nothing
+     * @param x
+     * @param z
+     * @return 0
      */
-    void two (){
+    int first(int x, int z){
+        return 0;
+    }
+
+    /**
+     * this method does nothing
+     */
+    void second(){
 
     }
 
     /**
-     *
-     * @param a
+     * this method prints "Hello world!"
+     * @param b
+     */
+    void third(boolean b){
+        System.out.println("Hello world!");
+    }
+
+    /**
+     * @param c
+     * @return c
+     */
+    char fourth(char c){
+        return c;
+    }
+
+    /**
+     * @param d
+     * @param e
      * @return
      */
-
-    boolean aBoolean(boolean a){
-        System.out.println(("Hello world"));
-        return a;
-    }
-
-    /**
-     *
-     * @param a
-     * @return
-     */
-    char aChar(char a){
-        return a;
-    }
-
-    float aFloat(float k, float l){
-        return  k;
+    float fifth(float d, float e){
+        return e;
     }
 
     /**
      * recursion
      */
     int i = 0;
-
-    void itself() {
-        while (i < 10) {
+    void sixth(){
+        while(i < 10){
             i++;
-            itself();
+            sixth();
         }
     }
-
 }
+
