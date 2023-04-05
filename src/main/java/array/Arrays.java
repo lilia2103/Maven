@@ -1,48 +1,29 @@
 package array;
 
 import java.util.Scanner;
+import java.io.InputStream;
 
-public class Array {
-    public static void main(String[] args) {
-    int[][] matrix = {
-            {1,2,3,4},
-            {5,6,7,8},
-            {9,10,11,12},
-            {13,14,15,16}};
-    upperMatrix(matrix);
-    transpose(matrix);
-    for (int i = 0; i < matrix.length; i++) {
-        for (int j = 0; j < matrix.length; j++) {
-            System.out.print(matrix[j][i] + " ");
-        }
-        System.out.println();
+
+public class Arrays {
+    private Scanner sc;
+    public Arrays(InputStream inputStream) {
+        this.sc = new Scanner(inputStream);
     }
-}
-    public static  int toDecimal(int[] arr){
-        int n = 0;
-        int i = 0;
-        for (; i < arr.length ; i++) {
-            if (arr[i]  == 1);
-            int power = 1;
-            int j = arr.length-i-1;
-            while (j > 0){
-                power *=2;
-                j--;
-            }
-            n += power;
-        }
-        return n;
+
+    public Arrays(){
+
     }
+
     //prints the array
-    public static void print(int[] arr){
+    public void print(int[] arr){
         for(int i = 0; i < arr.length; i++)
             System.out.print(arr[i] + ", ");
         System.out.println();
     }
 
-    //տպում է int[] n  array-ի դրական տարրերը
 
-    public static void printPositive(int[] arr){
+    //տպում է int[] n  array-ի դրական տարրերը
+    public void printPositive(int[] arr){
         for(int i = 0; i < arr.length; i++){
             if(arr[i] > 0)
                 System.out.print(arr[i] + ", ");
@@ -51,7 +32,7 @@ public class Array {
     }
 
     //տպում է short[] s  array-ի էլեմենտները հակառակ հերթականությամբ
-    public static void printReverse(short[] arr){
+    public void printReverse(short[] arr){
         for (int i = arr.length-1; i >= 0; i--){
             System.out.print(arr[i] + ", ");
         }
@@ -59,37 +40,36 @@ public class Array {
     }
 
     //գտնում և  տպում է  long[] l array-ի ամենամեծ տարրը
-    public static void theLargest(long[] arr){
+    public long theLargest(long[] arr){
         long large = arr[0];
         for (int i = 1; i < arr.length; i++){
             if(large < arr[i])
                 large = arr[i];
         }
-        System.out.println("the largest number is: " + large);
+        return large;
     }
 
     //գտնում և տպում է  float[] f  array-ի ամենափոքր տարրը
-    public static void theSmallest(float[] arr){
+    public float theSmallest(float[] arr){
         float small = arr[0];
         for (int i = 1; i < arr.length; i++){
             if(small > arr[i])
                 small = arr[i];
         }
-        System.out.println("the smallest number is: " + small);
+        return small;
     }
 
     //int[] n array-ի էլեմենտները և տեղափոխում  int[] m  array-ի մեջ
-    public static int[] replace(int[] n){
+    public int[] replace(int[] n){
         int[] m = new int[n.length];
         for (int i = 0; i < n.length; i++) {
             m[i] = n[i];
         }
         return m;
     }
-
     //գումարում է array -ի համապատասխան էլեմենտները և գրում երրորդ array-ի մեջ
-    public static int[] sum(){
-        Scanner sc = new Scanner(System.in);
+
+    public int[] sum(){
         System.out.print("Enter the size: ");
         int n = sc.nextInt();
         System.out.println("Enter numbers for array 1: ");
@@ -102,7 +82,6 @@ public class Array {
         for (int i = 0; i < n; i++) {
             b[i] = sc.nextInt();
         }
-
         int[] c = new int[n];
         for (int i = 0; i < n; i++) {
             c[i] = a[i] + b[i];
@@ -111,8 +90,7 @@ public class Array {
     }
 
     //հաշվում է թե քանի անգամ է  k թիվը հանդիպել array-ի  Էլեմենտների մեջ
-
-    public static int numberOf(int[] a, int k){
+    public int numberOf(int[] a, int k){
         int n = 0;
         for (int i = 0; i < a.length; i++){
             if (a[i] == k)
@@ -120,10 +98,11 @@ public class Array {
         }
         return n;
     }
-    //TODO 8
 
+    //TODO 8
     //անդամները նվազման կարգով
-    public static void sort(int[] arr){
+
+    public int[] sort(int[] arr){
         for(int i = 0; i < arr.length; i++){
             for(int j = 0; j < arr.length; j++){
                 if(arr[i] > arr[j]) {
@@ -131,10 +110,11 @@ public class Array {
                 }
             }
         }
+        return arr;
     }
-
     //վերջում կենտերը
-    public static void odd(int[] arr){
+
+    public int[] odd(int[] arr){
         int i = 0;
         int j = arr.length-1;
         while (i <= j){
@@ -144,11 +124,12 @@ public class Array {
             }
             i++;
         }
+        return arr;
     }
     //TODO change
-
     //հեռացնել բոլոր զրոները
-    public static int[] noZero(int[] a){
+
+    public int[] noZero(int[] a){
         int j = 0;
         for (int i = 0; i < a.length; i++){
             if(a[i] != 0)
@@ -166,27 +147,49 @@ public class Array {
     }
 
     //TODO 12
+
+
     //արտածել arr 10-ական ներկայացումը
-
-    public static void upperMatrix(int[][] arr){
-        for(int i = 0; i < arr.length; i++){
-            for(int j = i+1; j < arr[i].length; j++){
-
-                System.out.println(arr[i][j]);
+    public int toDecimal(int[] arr){
+        int n = 0;
+        int i = 0;
+        for (; i<arr.length; i++){
+            if(arr[i] == 1){
+                int power = 1;
+                int j = arr.length-i-1;
+                while(j > 0){
+                    power *= 2;
+                    j--;
+                }
+                n += power;
             }
         }
+        return n;
     }
 
-    public static void transpose(int[][] arr){
+    public int[] upperMatrix(int[][] arr){
+        int l = arr.length;
+        int[] upper = new int[l*(l-1)/2];
+        int k = 0;
+        for(int i = 0; i < arr.length; i++){
+            for(int j = i+1; j < arr[i].length; j++){
+                upper[k] = arr[i][j];
+                k++;
+            }
+        }
+        return upper;
+    }
+
+    public int[][] transpose(int[][] arr){
         for (int i = 0; i < arr.length; i++) {
             for (int j = i+1; j < arr[i].length; j++) {
                 arr[i][j] = arr[i][j] ^ arr[j][i] ^ (arr[j][i] = arr[i][j]);
             }
-
         }
+        return arr;
     }
 
-    public static void zeroRow(int[][] arr){
+    public boolean evenRow(int[][] arr){
         for (int i = 0; i < arr.length; i++) {
             int sum = 0;
             for (int j = 0; j < arr[i].length; j++) {
@@ -194,11 +197,11 @@ public class Array {
             }
             if(sum %2 != 0){
                 System.out.println("no");
-                return;
+                return false;
             }
         }
         System.out.println("yes");
+        return true;
     }
 
-    ///nor ban
 }
